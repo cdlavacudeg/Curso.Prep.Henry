@@ -10,6 +10,11 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  let arr=[];
+  for(key in objeto){
+    arr.push([key,objeto[key]]);
+  }
+  return arr;
 }
 
 
@@ -18,6 +23,20 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set
+  //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  let unique=[...new Set(string)].sort(); //order list of unique values on the string
+  function countTimes(letter,str){
+    let count=0;
+    for(let i=0;i<str.length;i++){
+      if(str[i]==letter) count++;
+    }
+    return count;
+  }
+  return unique.map(letter=>{
+    return {[letter]:countTimes(letter,string)}
+  });
+
 }
 
 
