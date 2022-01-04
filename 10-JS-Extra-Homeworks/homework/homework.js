@@ -45,6 +45,13 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  let minus='';
+  let mayus='';
+  for(let i=0;i<s.length;i++){
+    if(s[i]==s[i].toUpperCase()) mayus+=s[i];
+    else{minus+=s[i]};
+  }
+  return mayus+minus
 }
 
 
@@ -54,6 +61,15 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  let arr=str.split(' ');
+  for(let i=0;i<arr.length;i++){
+    let invStr='';
+    for(let j=arr[i].length-1;j>=0;j--){
+      invStr+=arr[i].charAt(j);
+    }
+    arr[i]=invStr;
+  }
+  return arr.join(' ');
 } 
 
 
@@ -62,6 +78,9 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  let normal=numero.toString();
+  let invert=numero.toString().split('').reverse().join('');
+  return normal==invert ? "Es capicua" : "No es capicua";
 }
 
 
